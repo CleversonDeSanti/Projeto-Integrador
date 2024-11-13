@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.app</groupId>
-	<artifactId>spring-boot-CRUD-with-thymeleaf</artifactId>
+	<artifactId>falcao-finder</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-boot-CRUD-with-thymeleaf</name>
+	<name>falcao-finder</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
