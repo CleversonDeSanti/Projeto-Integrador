@@ -1,30 +1,124 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <th:block th:include="fragments/header :: head"> </th:block>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="search-box.css" />
+    <title>Bem-vindo ao FALCÃO Finder</title>
+    <!-- Include head from Thymeleaf fragment -->
+    <th:block th:include="fragments/header :: head"></th:block>
+
+    <!-- Custom Styles for Search Box -->
+    <style>
+        /* Estilos para a caixa de pesquisa */
+        .search-container {
+            position: relative;
+            width: 80px; /* Aumentei o tamanho */
+            height: 80px; /* Aumentei o tamanho */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+
+        .search-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 60px;  /* Aumentei o tamanho do ícone */
+            height: 60px; /* Aumentei o tamanho do ícone */
+            border-radius: 50%;
+            transform: rotate(45deg);
+            cursor: pointer;
+        }
+
+        .search-icon::before {
+            content: '';
+            width: 25%;
+            height: 25%;
+            border-radius: 50%;
+            border: 3px solid #f2cb05; /* Aumentei a espessura da borda */
+        }
+
+        .search-icon::after {
+            content: '';
+            width: 30%;
+            height: 3px; /* Aumentei a espessura da linha */
+            background-color: #f2cb05;
+        }
+
+        .search-input {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            padding-left: 60px; /* Ajustei o padding para o ícone maior */
+            transition: all 0.7s;
+        }
+
+        .search-input:focus {
+            width: 300px;  /* Aumentei o tamanho quando em foco */
+            box-shadow: 2px 2px 5px #777;
+        }
+
+        .search-input:valid {
+            width: 300px;  /* Aumentei o tamanho para quando válido */
+        }
+
+        /* Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center; /* Centraliza o conteúdo horizontalmente */
+            align-items: center;     /* Centraliza o conteúdo verticalmente */
+            min-height: 100vh;       /* Garante que o body ocupe 100% da altura da tela */
+            background-color: #ffffff; /* Cor de fundo da página */
+            margin-left: 20px;
+        }
+
+        .container {
+            text-align: center; /* Centraliza o texto dentro do container */
+        }
+    </style>
 </head>
 <body>
 <div class="container">
+    <!-- Navigation (Replace with Thymeleaf fragment) -->
+    <nav>
+        <th:block th:replace="fragments/nav :: nav"></th:block>
+    </nav>
+
     <br>
 
-    <nav>  <th:block th:replace="fragments/nav :: nav"></th:block>   </nav>
+    <!-- Welcome Section -->
+    <h1>Bem-vindo ao FALCÃO Finder</h1>
+    <h4>Para ver a lista, <a th:href="@{/list}">clique aqui</a></h4>
 
-<br>
+    <br><br>
 
-    <h1>
+    <!-- Search Box Section -->
+    <main>
+        <div class="search-container">
+            <label for="search-input" class="search-icon"></label>
+            <input type="text" class="search-input" id="search-input" required />
+        </div>
+    </main>
 
-        Bem vindo a FALCÃO finder
-    </h1>
-    <h4>To see List  <a th:href="@{/list}">Click Here</a></h4>
-    <br>
+    <br><br>
 
-
-
-
+    <!-- Footer (Replace with Thymeleaf fragment) -->
     <footer>
-<th:block th:include="fragments/footer :: footer"></th:block>
+        <th:block th:include="fragments/footer :: footer"></th:block>
     </footer>
-
 </div>
 </body>
 </html>
