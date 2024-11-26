@@ -26,6 +26,12 @@ public class CourseController {
          return new ModelAndView("wc");
       }
 
+      @GetMapping("/home")
+      public ModelAndView home(){
+
+         return new ModelAndView("home");
+      }
+
       // Course List
 
     @GetMapping("/list")

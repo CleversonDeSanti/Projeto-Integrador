@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial e Perfil</title>
+    <style>
+        /* Estilos da página inicial */
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        .imagem-logo {
+            position: absolute;
+            top: 10px;
+            left: 100px;
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .botao-entrar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 85px;
+            height: 40px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .botao-lista {
+            position: absolute;
+            top: 80px;
+            right: 20px;
+            width: 85px;
+            height: 40px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .botao-entrar:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilos da página de perfil */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-wrap: wrap;
+        }
+
+        .moldura {
+            border: 5px solid #4CAF50;
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 100px; /* Ajuste para separar a moldura do conteúdo superior */
+        }
+
+        .perfil-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            margin: 15px;
+        }
+
+        .perfil-container img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .nome {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .descricao {
+            font-size: 1em;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .informacoes {
+            text-align: left;
+        }
+
+        .informacoes p {
+            margin: 5px 0;
+        }
+
+        .botao-editar {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .botao-editar:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Imagem no canto superior esquerdo da página inicial -->
+<a href="home.html">
+    <img src="Imagens/WhatsApp Image 2024-11-22 at 23.58.04.jpeg" class="imagem-logo" />
+</a>
+
+<!-- Botão de Entrar -->
+<a href="Pagina%20Login%20e%20Cadastro.html">
+    <button class="botao-entrar">Entrar</button>
+</a>
+
+<a href="/">
+    <button class="botao-lista">Lista</button>
+</a>
+
+<!-- Seção de Perfil de Usuários -->
+<div class="moldura">
+    <div class="perfil-container">
+        <img src="https://via.placeholder.com/100" alt="Foto de Perfil">
+        <div class="nome">João Silva</div>
+        <div class="descricao">Desenvolvedor Web e amante de tecnologia</div>
+        <div class="informacoes">
+            <p><strong>Nome de Usuario:</strong> joao@exemplo.com</p>
+            <p><strong>Telefone:</strong> (11) 1234-5678</p>
+        </div>
+        <a href="#" class="botao-editar">Visualizar</a>
+    </div>
+
+    <div class="perfil-container">
+        <img src="https://via.placeholder.com/100" alt="Foto de Perfil">
+        <div class="nome">Mariana Costa</div>
+        <div class="descricao">Desenvolvedora de Software e Designer Gráfico</div>
+        <div class="informacoes">
+            <p><strong>Nome de Usuario:</strong> mariana@exemplo.com</p>
+            <p><strong>Telefone:</strong> (11) 9876-5432</p>
+        </div>
+        <a href="#" class="botao-editar">Visualizar</a>
+    </div>
+
+    <div class="perfil-container">
+        <img src="https://via.placeholder.com/100" alt="Foto de Perfil">
+        <div class="nome">Maria Oliveira</div>
+        <div class="descricao">Designer Gráfico e apaixonada por arte</div>
+        <div class="informacoes">
+            <p><strong>Nome de Usuario:</strong> maria@exemplo.com</p>
+            <p><strong>Telefone:</strong> (11) 9876-5432</p>
+        </div>
+        <a href="#" class="botao-editar">Visualizar</a>
+    </div>
+
+    <div class="perfil-container">
+        <img src="https://via.placeholder.com/100" alt="Foto de Perfil">
+        <div class="nome">Carlos Almeida</div>
+        <div class="descricao">Gestor de Projetos e empreendedor</div>
+        <div class="informacoes">
+            <p><strong>Nome de Usuario:</strong> carlos@exemplo.com</p>
+            <p><strong>Telefone:</strong> (21) 1122-3344</p>
+        </div>
+        <a href="#" class="botao-editar">Visualizar</a>
+    </div>
+
+    <div class="perfil-container">
+        <img src="https://via.placeholder.com/100" alt="Foto de Perfil">
+        <div class="nome">Ana Souza</div>
+        <div class="descricao">Marketing Digital e criadora de conteúdo</div>
+        <div class="informacoes">
+            <p><strong>Nome de Usuario:</strong> ana@exemplo.com</p>
+            <p><strong>Telefone:</strong> (31) 2233-4455</p>
+        </div>
+        <a href="#" class="botao-editar">Visualizar</a>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
