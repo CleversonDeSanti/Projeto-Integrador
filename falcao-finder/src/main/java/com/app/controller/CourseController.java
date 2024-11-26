@@ -32,6 +32,12 @@ public class CourseController {
          return new ModelAndView("home");
       }
 
+    @GetMapping("/login")
+    public ModelAndView login(){
+
+        return new ModelAndView("login");
+    }
+
       // Course List
 
     @GetMapping("/list")
@@ -64,6 +70,13 @@ public class CourseController {
     public ModelAndView addCourse(@ModelAttribute("courseForm") Course course){
 
           service.saveCourse(course);
+        return new ModelAndView("redirect:/list");
+    }
+
+    @PostMapping("/addUser")
+    public ModelAndView addUser(@ModelAttribute("loginForm") Course course){
+
+        service.saveCourse(course);
         return new ModelAndView("redirect:/list");
     }
 
