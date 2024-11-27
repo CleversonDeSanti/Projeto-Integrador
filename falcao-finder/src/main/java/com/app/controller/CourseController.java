@@ -26,6 +26,32 @@ public class CourseController {
          return new ModelAndView("wc");
       }
 
+<<<<<<< Updated upstream
+=======
+      @GetMapping("/home")
+      public ModelAndView home(){
+
+         return new ModelAndView("home");
+      }
+
+    @GetMapping("/login")
+    public ModelAndView login(){
+
+        return new ModelAndView("login");
+    }
+
+    @GetMapping("/perfil")
+    public ModelAndView perfil(){
+
+        return new ModelAndView("perfil");
+    }
+
+    @GetMapping("/perfil")
+    public ModelAndView perfil(){
+
+        return new ModelAndView("perfil");
+    }
+>>>>>>> Stashed changes
       // Course List
 
     @GetMapping("/list")
