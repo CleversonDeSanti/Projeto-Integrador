@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@Controller
+@Controller()
 public class CourseController {
 
     @Autowired
@@ -21,7 +21,7 @@ public class CourseController {
 
 
       @GetMapping("/")
-      public ModelAndView welcomePage(){
+      public ModelAndView coursePage(){
 
          return new ModelAndView("wc");
       }
@@ -37,6 +37,13 @@ public class CourseController {
 
         return new ModelAndView("login");
     }
+
+    @GetMapping("/perfil")
+    public ModelAndView perfil(){
+
+        return new ModelAndView("perfil");
+    }
+
 
       // Course List
 

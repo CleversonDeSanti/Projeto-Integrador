@@ -38,6 +38,4 @@ public class ServiceImpl implements CourseService {
         repository.deleteById(id);
     }
 
-
-
 }

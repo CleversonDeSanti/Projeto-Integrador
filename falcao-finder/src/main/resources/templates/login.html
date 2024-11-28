@@ -1,193 +1,51 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <th:block th:include="fragments/header :: head"></th:block>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bem-vindo</title>
-
     <style>
         /* Estilos permanecem os mesmos */
-        body, html {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-
-        .container {
-            display: flex;
-            justify-content: space-between;
-            width: 80%;
-            max-width: 1200px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-container {
-            width: 45%;
-            padding: 20px;
-            background-color: #fafafa;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            font-size: 2em;
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        input, button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 4px;
-            font-size: 1em;
-        }
-
-        input {
-            border: 1px solid #ddd;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        .top-button {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            width: 85px;
-            height: 40px;
-            background-color: #45a049;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .top-button:hover {
-            background-color: #0056b3;
-        }
-
-        .error-message {
-            color: red;
-            font-size: 0.9em;
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        /* Estilo da imagem no canto superior esquerdo */
-        .imagem-logo {
-            position: absolute;                /* Posiciona a imagem de forma absoluta */
-            top: 10px;                          /* Distância de 10 pixels do topo da tela */
-            left: 100px;                         /* Distância de 100 pixels da borda esquerda da tela */
-            width: 100px;                        /* Define o tamanho da imagem (ajuste conforme necessário) */
-            height: auto;                       /* Mantém a proporção original da imagem */
-            cursor: pointer;                    /* Mostra o cursor de "mão" quando o mouse passa sobre a imagem */
-        }
     </style>
 </head>
 <body>
+<nav>
+    <th:block th:replace="fragments/nav :: nav"></th:block>
+</nav>
 
-<!-- Imagem no canto superior esquerdo -->
-<a href="Pagina%20Inicial.html">
+<a href="/loginPage">
     <img src="Imagens/WhatsApp Image 2024-11-22 at 23.58.04.jpeg" class="imagem-logo" />
 </a>
 
-<button class="top-button" onclick="window.location.href='Pagina Inicial.html'">Voltar</button>
+<button class="top-button" onclick="window.location.href='/loginPage'">Voltar</button>
 
 <div class="container">
     <!-- Tela de Login -->
     <div class="form-container" id="login">
         <h1>Login</h1>
-        <form id="login-form">
-            <input type="text" id="username" placeholder="Nome de Usuário" required>
-            <input type="password" id="password" placeholder="Senha" required>
-            <input type="text" id="security-code" placeholder="Código de Segurança" required>
+        <form th:action="@{/login}" th:object="${loginForm}" method="post">
+            <input type="text" th:field="*{username}" placeholder="Nome de Usuário" required>
+            <input type="password" th:field="*{password}" placeholder="Senha" required>
             <button type="submit">Entrar</button>
         </form>
-        <p class="error-message" id="error-message" style="display:none;">Nome de usuário, senha ou código de segurança incorretos!</p>
+        <p th:if="${loginError != null}" class="error-message" th:text="${loginError}"></p>
     </div>
 
     <!-- Tela de Cadastro -->
     <div class="form-container" id="cadastro">
         <h1>Cadastre-se</h1>
-        <form id="register-form">
-            <input type="text" id="new-username" placeholder="Nome de Usuário" required>
-            <input type="password" id="new-password" placeholder="Senha" required>
-            <input type="password" id="confirm-password" placeholder="Repita a Senha" required>
-            <input type="text" id="new-security-code" placeholder="Código de Segurança" required>
+        <form th:action="@{/users/save}" th:object="${registerForm}" method="post">
+            <input type="hidden" th:field="*{u_id}">
+            <input type="text" th:field="*{username}" placeholder="Nome de Usuário" required>
+            <input type="password" th:field="*{password}" placeholder="Senha" required>
+            <input type="password" th:field="*{confirmPassword}" placeholder="Repita a Senha" required>
+            <input type="text" th:field="*{securityCode}" placeholder="Código de Segurança" required>
             <button type="submit">Cadastrar</button>
         </form>
+        <p th:if="${registerError != null}" class="error-message" th:text="${registerError}"></p>
     </div>
 </div>
 
-<script>
-    // Função para registrar um novo usuário
-    document.getElementById('register-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const newUsername = document.getElementById('new-username').value;
-        const newPassword = document.getElementById('new-password').value;
-        const confirmPassword = document.getElementById('confirm-password').value;
-        const newSecurityCode = document.getElementById('new-security-code').value;
-
-        if (newPassword !== confirmPassword) {
-            alert('As senhas não coincidem!');
-            return;
-        }
-
-        // Armazenando os dados no localStorage
-        localStorage.setItem('username', newUsername);
-        localStorage.setItem('password', newPassword);
-        localStorage.setItem('securityCode', newSecurityCode);
-
-        alert('Cadastro realizado com sucesso!');
-    });
-
-    // Função para fazer login
-    document.getElementById('login-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        // Pegando os dados cadastrados do localStorage
-        const storedUsername = localStorage.getItem('username');
-        const storedPassword = localStorage.getItem('password');
-        const storedSecurityCode = localStorage.getItem('securityCode');
-
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const securityCode = document.getElementById('security-code').value;
-
-        // Verificando se os dados do login estão corretos
-        if (username === storedUsername && password === storedPassword && securityCode === storedSecurityCode) {
-            window.location.href = 'Tela de Perfil.html';  // Redireciona para a próxima página
-        } else {
-            document.getElementById('error-message').style.display = 'block';  // Exibe a mensagem de erro
-        }
-    });
-</script>
-
 </body>
 </html>
-
-
-
-

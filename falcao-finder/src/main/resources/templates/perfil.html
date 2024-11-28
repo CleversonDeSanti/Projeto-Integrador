@@ -236,7 +236,10 @@
       <p><strong>200</strong> Seguindo</p>
     </div>
   </section>
-
+  <h1>Bem-vindo, <span th:text="${user.username}"></span>!</h1>
+  <p>ID: <span th:text="${user.u_id}"></span></p>
+  <p>Código de Segurança: <span th:text="${user.securityCode}"></span></p>
+  <a href="/loginPage">Sair</a>
   <!-- Seção de postagens -->
   <section class="posts">
     <h2>Postagens</h2>
