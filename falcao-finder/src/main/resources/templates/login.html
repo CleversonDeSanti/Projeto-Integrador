@@ -7,6 +7,102 @@
     <title>Bem-vindo</title>
     <style>
         /* Estilos permanecem os mesmos */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 1200px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container {
+            width: 45%;
+            padding: 20px;
+            background-color: #fafafa;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        input {
+            border: 1px solid #ddd;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .top-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 85px;
+            height: 40px;
+            background-color: #45a049;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top-button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Estilo da imagem no canto superior esquerdo */
+        .imagem-logo {
+            position: absolute;                /* Posiciona a imagem de forma absoluta */
+            top: 10px;                          /* Distância de 10 pixels do topo da tela */
+            left: 100px;                         /* Distância de 100 pixels da borda esquerda da tela */
+            width: 100px;                        /* Define o tamanho da imagem (ajuste conforme necessário) */
+            height: auto;                       /* Mantém a proporção original da imagem */
+            cursor: pointer;                    /* Mostra o cursor de "mão" quando o mouse passa sobre a imagem */
+        }
     </style>
 </head>
 <body>
