@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial e Perfil</title>
+    <title>Início</title>
     <style>
         /* Estilos da página inicial */
         body {
@@ -39,8 +39,8 @@
 
         .botao-lista {
             position: absolute;
-            top: 80px;
-            right: 20px;
+            top: 20px;
+            right: 120px;
             width: 85px;
             height: 40px;
             background-color: #4CAF50;
@@ -140,8 +140,8 @@
 <body>
 
 <!-- Imagem no canto superior esquerdo da página inicial -->
-<a href="home.html">
-    <img src="Imagens/WhatsApp Image 2024-11-22 at 23.58.04.jpeg" class="imagem-logo" />
+<a href="home">
+    <img th:src="@{/images/FFConect.png}" class="imagem-logo"/>
 </a>
 
 <!-- Botão de Entrar -->
@@ -156,58 +156,63 @@
 <!-- Seção de Perfil de Usuários -->
 <div class="moldura">
     <div class="perfil-container">
-        <img src="https://via.placeholder.com/100" alt="Foto de Perfil">
+        <img th:src="@{/images/Encanador.jpg}" alt="Foto de Perfil" />
         <div class="nome">João Silva</div>
-        <div class="descricao">Desenvolvedor Web e amante de tecnologia</div>
+        <div class="descricao">Encanador e serviços de limpeza geral, comercial e residencial.</div>
         <div class="informacoes">
-            <p><strong>Nome de Usuario:</strong> joao@exemplo.com</p>
+            <p><strong>Contatos</strong>
+            <p><strong>E-mail:</strong> joao@exemplo.com</p>
             <p><strong>Telefone:</strong> (11) 1234-5678</p>
         </div>
-        <a href="#" class="botao-editar">Visualizar</a>
+        <a href="/visualizar-perfil.html" class="botao-editar">Visualizar</a>
     </div>
 
     <div class="perfil-container">
-        <img src="https://via.placeholder.com/100" alt="Foto de Perfil">
+        <img th:src="@{/images/Designer.png}" alt="Foto de Perfil">
         <div class="nome">Mariana Costa</div>
-        <div class="descricao">Desenvolvedora de Software e Designer Gráfico</div>
+        <div class="descricao">Designer Gráfico. Expresso em imagens criativas o sonho das pessoas! Faça contato e entre no mundo da criatividade!</div>
         <div class="informacoes">
-            <p><strong>Nome de Usuario:</strong> mariana@exemplo.com</p>
+            <p><strong>Contatos</strong>
+            <p><strong>E-mail:</strong> mariana@exemplo.com</p>
             <p><strong>Telefone:</strong> (11) 9876-5432</p>
         </div>
-        <a href="#" class="botao-editar">Visualizar</a>
+        <a href="/visualizar-perfil.html" class="botao-editar">Visualizar</a>
     </div>
 
     <div class="perfil-container">
-        <img src="https://via.placeholder.com/100" alt="Foto de Perfil">
-        <div class="nome">Maria Oliveira</div>
-        <div class="descricao">Designer Gráfico e apaixonada por arte</div>
+        <img th:src="@{/images/Faxineira.jpg}" alt="Foto de Perfil">
+        <div class="nome">Maria de Oliveira</div>
+        <div class="descricao">Serviços de faxina residencial, de forma diária, semanal e mensal. Deixo sua casa um brinco!</div>
         <div class="informacoes">
-            <p><strong>Nome de Usuario:</strong> maria@exemplo.com</p>
+            <p><strong>Contatos</strong>
+            <p><strong>E-mail:</strong> maria@exemplo.com</p>
             <p><strong>Telefone:</strong> (11) 9876-5432</p>
         </div>
-        <a href="#" class="botao-editar">Visualizar</a>
+        <a href="/visualizar-perfil.html" class="botao-editar">Visualizar</a>
     </div>
 
     <div class="perfil-container">
-        <img src="https://via.placeholder.com/100" alt="Foto de Perfil">
+        <img th:src="@{/images/Jardineiro.jpg}" alt="Foto de Perfil">
         <div class="nome">Carlos Almeida</div>
-        <div class="descricao">Gestor de Projetos e empreendedor</div>
+        <div class="descricao">Presto serviços de jardinagem residencial e comercial, limpeza de ambientes externos e revitalização.</div>
         <div class="informacoes">
-            <p><strong>Nome de Usuario:</strong> carlos@exemplo.com</p>
+            <p><strong>Contatos</strong>
+            <p><strong>E-mail:</strong> carlos@exemplo.com</p>
             <p><strong>Telefone:</strong> (21) 1122-3344</p>
         </div>
-        <a href="#" class="botao-editar">Visualizar</a>
+        <a href="/visualizar-perfil.html" class="botao-editar">Visualizar</a>
     </div>
 
     <div class="perfil-container">
-        <img src="https://via.placeholder.com/100" alt="Foto de Perfil">
-        <div class="nome">Ana Souza</div>
-        <div class="descricao">Marketing Digital e criadora de conteúdo</div>
+        <img th:src="@{/images/Mudança.jpg}" alt="Foto de Perfil">
+        <div class="nome">José dos Santos</div>
+        <div class="descricao">Fazemos fretes e mudanças para todo o Brasil com o melhor preço do mercado! Entre em contato e faça seu orçamento!</div>
         <div class="informacoes">
-            <p><strong>Nome de Usuario:</strong> ana@exemplo.com</p>
+            <p><strong>Contatos</strong>
+            <p><strong>E-mail:</strong> jose@exemplo.com</p>
             <p><strong>Telefone:</strong> (31) 2233-4455</p>
         </div>
-        <a href="#" class="botao-editar">Visualizar</a>
+        <a href="/visualizar-perfil.html" class="botao-editar">Visualizar</a>
     </div>
 </div>
 
