@@ -268,97 +268,104 @@
 
 
 
-<script>
-  function changeCoverPhoto(event) {
-    const file = event.target.files[0];
-    if (file) {
-      const formData = new FormData();
-      formData.append("file", file);
+  <script>
+    function changeCoverPhoto(event) {
+      const file = event.target.files[0];
+      if (file) {
+        // Lê o arquivo e exibe no navegador
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          document.getElementById("coverImage").src = e.target.result;
+        };
+        reader.readAsDataURL(file);
 
-      fetch(`/api/users/${userId}/uploadCover`, {
-        method: "POST",
-        body: formData
-      })
-              .then(response => response.text())
-              .then(url => {
-                document.getElementById("coverImage").src = url; // Atualiza a imagem no front-end
-              })
-              .catch(error => console.error("Erro ao enviar foto de capa:", error));
+        // Opcional: Salva temporariamente no localStorage (não persiste ao fechar o navegador)
+        localStorage.setItem("tempCoverPhoto", file.name);
+      }
     }
-  }
+    // Função para ativar a edição
+    function enableEditing() {
+      // Ativa os campos contenteditable
+      document.querySelectorAll('.post-description').forEach(el => el.setAttribute('contenteditable', 'true'));
 
-  function changeProfilePhoto(event) {
-    const file = event.target.files[0];
-    if (file) {
-      const formData = new FormData();
-      formData.append("file", file);
+      // Habilita o botão "Salvar" e desativa o botão "Editar"
+      document.getElementById('saveButton').disabled = false;
+      document.getElementById('editButton').disabled = true;
 
-      fetch(`/api/users/${userId}/uploadProfile`, {
-        method: "POST",
-        body: formData
-      })
-              .then(response => response.text())
-              .then(url => {
-                document.getElementById("profileImage").src = url; // Atualiza a imagem no front-end
-              })
-              .catch(error => console.error("Erro ao enviar foto de perfil:", error));
+      // Adiciona um estilo visual para indicar que está em modo de edição
+      document.querySelectorAll('.post-description').forEach(el => {
+        el.style.border = "1px dashed #007BFF";
+        el.style.backgroundColor = "#f9f9f9";
+      });
     }
-  }
 
-  fetch(`/api/users/${userId}`)
-          .then(response => response.json())
-          .then(user => {
-            document.getElementById("coverImage").src = user.coverPhotoUrl || "https://via.placeholder.com/1200x400";
-            document.getElementById("profileImage").src = user.profilePhotoUrl || "https://via.placeholder.com/150";
-          })
-          .catch(error => console.error("Erro ao carregar dados do usuário:", error));
+    // Função para salvar as alterações
+    function saveChanges() {
+      // Captura as descrições editadas
+      const postDescriptions = Array.from(document.querySelectorAll('.post-description')).map(el => el.innerText);
 
+      // Cria um objeto para enviar os dados para o backend
+      const data = { posts: postDescriptions };
 
+      // Envia os dados para o backend via fetch
+      fetch('/saveUserData', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+              .then(response => {
+                if (response.ok) {
+                  alert('Alterações salvas com sucesso!');
+                } else {
+                  alert('Erro ao salvar as alterações.');
+                }
+              })
+              .catch(error => console.error('Erro:', error));
 
-  // Função para ativar a edição
-  function enableEditing() {
-    // Ativa os campos contenteditable
-    document.querySelectorAll('.post-description').forEach(el => el.setAttribute('contenteditable', 'true'));
+      // Desativa a edição nos campos e ajusta os botões
+      document.querySelectorAll('.post-description').forEach(el => {
+        el.setAttribute('contenteditable', 'false');
+        el.style.border = "none";
+        el.style.backgroundColor = "#fff";
+      });
 
-    // Habilita o botão Salvar e desativa o botão Editar
-    document.getElementById('saveButton').disabled = false;
-    document.getElementById('editButton').disabled = true;
-  }
+      document.getElementById('saveButton').disabled = true;
+      document.getElementById('editButton').disabled = false;
+    }
 
-  // Função para salvar as alterações
-  function saveChanges() {
-    // Captura as descrições editadas
-    const postDescriptions = Array.from(document.querySelectorAll('.post-description')).map(el => el.innerText);
+    function changeProfilePhoto(event) {
+      const file = event.target.files[0];
+      if (file) {
+        // Lê o arquivo e exibe no navegador
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          document.getElementById("profileImage").src = e.target.result;
+        };
+        reader.readAsDataURL(file);
 
-    // Cria um objeto para enviar os dados para o backend
-    const data = { posts: postDescriptions };
+        // Opcional: Salva temporariamente no localStorage
+        localStorage.setItem("tempProfilePhoto", file.name);
+      }
+    }
 
-    // Envia os dados para o backend via fetch
-    fetch('/saveUserData', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    })
-            .then(response => {
-              if (response.ok) {
-                alert('Alterações salvas com sucesso!');
-              } else {
-                alert('Erro ao salvar as alterações.');
-              }
-            })
-            .catch(error => console.error('Erro:', error));
+    // Carrega imagens do localStorage ao inicializar (se necessário)
+    window.onload = function () {
+      const coverPhoto = localStorage.getItem("tempCoverPhoto");
+      const profilePhoto = localStorage.getItem("tempProfilePhoto");
 
-    // Desativa a edição nos campos e ajusta os botões
-    document.querySelectorAll('.post-description').forEach(el => el.setAttribute('contenteditable', 'false'));
-    document.getElementById('saveButton').disabled = true;
-    document.getElementById('editButton').disabled = false;
-  }
+      if (coverPhoto) {
+        document.getElementById("coverImage").src = coverPhoto;
+      }
+      if (profilePhoto) {
+        document.getElementById("profileImage").src = profilePhoto;
+      }
+    };
+  </script>
 
-
-</script>
   <footer>
     <p>&copy; 2024 FFConnect&trade;. Todos os direitos reservados.</p>
   </footer>
+
 </body>
 </html>
 
