@@ -130,16 +130,29 @@
     <!-- Tela de Cadastro -->
     <div class="form-container" id="cadastro">
         <h1>Cadastre-se</h1>
-        <form th:action="@{/users/save}" th:object="${registerForm}" method="post">
+        <form th:action="@{/users/save}" th:object="${registerForm}" method="post" enctype="multipart/form-data">
             <input type="hidden" th:field="*{u_id}">
+
             <input type="text" th:field="*{username}" placeholder="Nome de Usuário" required>
+
             <input type="password" th:field="*{password}" placeholder="Senha" required>
+
             <input type="password" th:field="*{confirmPassword}" placeholder="Repita a Senha" required>
+
             <input type="text" th:field="*{securityCode}" placeholder="Código de Segurança" required>
+
+            <label for="cover-photo">Foto de Capa:</label>
+            <input type="file" id="cover-photo" name="coverPhoto" accept="image/*" required>
+
+            <label for="profile-photo">Foto de Perfil:</label>
+            <input type="file" id="profile-photo" name="profilePhoto" accept="image/*" required>
+
             <button type="submit">Cadastrar-se</button>
         </form>
+
         <p th:if="${registerError != null}" class="error-message" th:text="${registerError}"></p>
     </div>
+
 </div>
 <footer>
     <p>&copy; 2024 FFConnect&trade;. Todos os direitos reservados.</p>
