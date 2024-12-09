@@ -94,21 +94,26 @@
             margin-top: 10px;
         }
 
-        /* Estilo da imagem no canto superior esquerdo */
-        .imagem-logo {
-            position: absolute;                /* Posiciona a imagem de forma absoluta */
-            top: 10px;                          /* Distância de 10 pixels do topo da tela */
-            left: 80px;                         /* Distância de 100 pixels da borda esquerda da tela */
-            width: 100px;                        /* Define o tamanho da imagem (ajuste conforme necessário) */
-            height: auto;                       /* Mantém a proporção original da imagem */
-            cursor: pointer;                    /* Mostra o cursor de "mão" quando o mouse passa sobre a imagem */
+        footer {
+            background-color: #4CAF50;
+            color: #f0f0f0;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 
 
-<button class="top-button" onclick="window.location.href='/loginPage'">Voltar</button>
+<button class="top-button" onclick="window.location.href='/home'">Voltar</button>
 
 <div class="container">
     <!-- Tela de Login -->
@@ -136,6 +141,9 @@
         <p th:if="${registerError != null}" class="error-message" th:text="${registerError}"></p>
     </div>
 </div>
+<footer>
+    <p>&copy; 2024 FFConnect&trade;. Todos os direitos reservados.</p>
+</footer>
 
 </body>
 </html>

@@ -193,23 +193,25 @@
         color: #777;
     }
 
-    /* Estilo da imagem no canto superior esquerdo */
-    .imagem-logo {
-        position: absolute;  /* Posiciona a imagem de forma absoluta */
-        top: 10px;           /* Distância de 10px do topo */
-        left: 100px;         /* Distância de 100px da borda esquerda */
-        width: 100px;         /* Tamanho da imagem */
-        height: auto;        /* Mantém a proporção da imagem */
-        cursor: pointer;     /* Cursor de mão */
+    footer {
+      background-color: #4CAF50;
+      color: #f0f0f0;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
 
-<!-- Imagem logo no canto superior esquerdo -->
-<a href="/loginPage">
-  <img src="Imagens/WhatsApp Image 2024-11-22 at 23.58.04.jpeg" class="imagem-logo" />
-</a>
+
 
 <div class="container">
   <!-- Cabeçalho -->
@@ -267,29 +269,49 @@
 
 
 <script>
-  // Função para alterar a foto de capa
   function changeCoverPhoto(event) {
     const file = event.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        document.getElementById('coverImage').src = e.target.result;
-      }
-      reader.readAsDataURL(file);
+      const formData = new FormData();
+      formData.append("file", file);
+
+      fetch(`/api/users/${userId}/uploadCover`, {
+        method: "POST",
+        body: formData
+      })
+              .then(response => response.text())
+              .then(url => {
+                document.getElementById("coverImage").src = url; // Atualiza a imagem no front-end
+              })
+              .catch(error => console.error("Erro ao enviar foto de capa:", error));
     }
   }
 
-  // Função para alterar a foto de perfil
   function changeProfilePhoto(event) {
     const file = event.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        document.getElementById('profileImage').src = e.target.result;
-      }
-      reader.readAsDataURL(file);
+      const formData = new FormData();
+      formData.append("file", file);
+
+      fetch(`/api/users/${userId}/uploadProfile`, {
+        method: "POST",
+        body: formData
+      })
+              .then(response => response.text())
+              .then(url => {
+                document.getElementById("profileImage").src = url; // Atualiza a imagem no front-end
+              })
+              .catch(error => console.error("Erro ao enviar foto de perfil:", error));
     }
   }
+
+  fetch(`/api/users/${userId}`)
+          .then(response => response.json())
+          .then(user => {
+            document.getElementById("coverImage").src = user.coverPhotoUrl || "https://via.placeholder.com/1200x400";
+            document.getElementById("profileImage").src = user.profilePhotoUrl || "https://via.placeholder.com/150";
+          })
+          .catch(error => console.error("Erro ao carregar dados do usuário:", error));
 
 
 
@@ -334,7 +356,9 @@
 
 
 </script>
-
+  <footer>
+    <p>&copy; 2024 FFConnect&trade;. Todos os direitos reservados.</p>
+  </footer>
 </body>
 </html>
 

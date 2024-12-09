@@ -20,12 +20,6 @@ public class CourseController {
     CourseService service;
 
 
-      @GetMapping("/")
-      public ModelAndView coursePage(){
-
-         return new ModelAndView("wc");
-      }
-
       @GetMapping("/home")
       public ModelAndView home(){
 

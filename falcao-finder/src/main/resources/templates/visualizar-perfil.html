@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar Perfil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .botao-voltar {
+            width: 85px;
+            height: 40px;
+            background-color: #45a049;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px; /* Espaço entre o botão e o restante do conteúdo */
+            text-align: center;
+        }
+        .header img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .info {
+            margin-top: 40px;
+        }
+        .info h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .info p {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: #f0f0f0;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <button class="botao-voltar" onclick="window.location.href='/home'">Voltar</button>
+    <div class="header">
+        <img id="profileImage" src="https://via.placeholder.com/150" alt="Foto de Perfil">
+        <h1 id="profileName">Carregando...</h1>
+        <p id="profileDescription">Carregando descrição...</p>
+    </div>
+    <div class="info">
+        <h2>Informações de Contato</h2>
+        <p><strong>Email:</strong> <span id="profileEmail">Carregando...</span></p>
+        <p><strong>Telefone:</strong>
+            <a id="profilePhone" href="https://wa.me/551112345678" target="_blank">Carregando...</a>
+        </p>
+        <p><strong>Endereço:</strong> Avenida Exemplo, nº 123, Centro. Modelópolis/SC</p>
+
+    </div>
+</div>
+
+<script>
+    // Obtém os parâmetros da URL
+    const params = new URLSearchParams(window.location.search);
+    const userId = params.get("id");
+
+    // Simulação de dados (normalmente você buscaria no backend)
+    const profiles = {
+        "123": {
+            name: "João Silva",
+            description: "Encanador e serviços de limpeza geral, comercial e residencial.",
+            email: "joao@exemplo.com",
+            phone: "(11) 1234-5678",
+            whatsapp: "https://wa.me/551112345678",  // Número de telefone sem o símbolo "+"
+            photo: "/images/Encanador.jpg"
+        },
+        "456": {
+            name: "Mariana Costa",
+            description: "Designer Gráfico. Expresso em imagens criativas o sonho das pessoas! Faça contato e entre no mundo da criatividade!",
+            email: "mariana@exemplo.com",
+            phone: "(21) 9876-5432",
+            whatsapp: "https://wa.me/552198765432",  // Número de telefone sem o símbolo "+"
+            photo: "/images/Designer.png"
+        },
+        "789": {
+            name: "Maria de Oliveira",
+            description: "Serviços de faxina residencial, de forma diária, semanal e mensal. Deixo sua casa um brinco!",
+            email: "maria@exemplo.com",
+            phone: "(21) 9876-5432",
+            whatsapp: "https://wa.me/552198765432",  // Número de telefone sem o símbolo "+"
+            photo: "/images/Faxineira.jpg"
+        },
+        "1234": {
+            name: "Carlos Almeida",
+            description: "Presto serviços de jardinagem residencial e comercial, limpeza de ambientes externos e revitalização.",
+            email: "carlos@exemplo.com",
+            phone: "(21) 1122-3344",
+            whatsapp: "https://wa.me/552111223344",  // Número de telefone sem o símbolo "+"
+            photo: "/images/Jardineiro.jpg"
+        },
+        "5678": {
+            name: "José dos Santos",
+            description: "Fazemos fretes e mudanças para todo o Brasil com o melhor preço do mercado! Entre em contato e faça seu orçamento!",
+            email: "jose@exemplo.com",
+            phone: "(31) 2233-4455",
+            whatsapp: "https://wa.me/553122334455",  // Número de telefone sem o símbolo "+"
+            photo: "/images/Mudança.jpg"
+        }
+    };
+
+    // Carrega o perfil baseado no ID
+    if (profiles[userId]) {
+        const profile = profiles[userId];
+        document.getElementById("profileImage").src = profile.photo;
+        document.getElementById("profileName").textContent = profile.name;
+        document.getElementById("profileDescription").textContent = profile.description;
+        document.getElementById("profileEmail").textContent = profile.email;
+        document.getElementById("profilePhone").textContent = profile.phone;
+        document.getElementById("profileWhatsapp").textContent = profile.whatsapp;
+
+    } else {
+        document.getElementById("profileName").textContent = "Perfil não encontrado";
+        document.querySelector(".info").style.display = "none";
+    }
+</script>
+
+<footer>
+    <p>&copy; 2024 FFConnect&trade;. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
