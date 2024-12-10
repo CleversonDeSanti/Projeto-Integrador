@@ -74,10 +74,20 @@
             margin: 0;
             font-size: 14px;
         }
+        .imagem-logo {
+            position: absolute;
+            top: 10px;
+            left: 100px;
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-
+<a href="home">
+    <img th:src="@{/images/logo sem o fundo.png}" class="imagem-logo"/>
+</a>
 
 <div class="container">
     <button class="botao-voltar" onclick="window.location.href='/home'">Voltar</button>
