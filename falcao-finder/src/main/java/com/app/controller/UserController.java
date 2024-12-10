@@ -24,11 +24,6 @@ public class UserController {
         return model;
     }
 
-    @GetMapping("/about_us")
-        public String showAboutUsPage() {
-            return "about_us"; // O nome do arquivo HTML (about_us.html) na pasta templates
-        }
-
 
     // Endpoint para salvar (cadastrar ou editar) usuário
     @PostMapping("/users/save")

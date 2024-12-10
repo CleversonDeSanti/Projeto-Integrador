@@ -1,4 +1,4 @@
-"<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -55,7 +55,22 @@
             justify-content: center;
             align-items: center;
         }
-
+        .botao-sobre {
+            position: absolute;
+            top: 20px;
+            right: 150px;
+            width: 85px;
+            height: 40px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
 
         .botao-entrar:hover {
@@ -160,7 +175,7 @@
 
 <!-- Imagem no canto superior esquerdo da página inicial -->
 <a href="home">
-    <img th:src="@{/images/logo sem o fundo.png}" class="imagem-logo"/>
+    <img th:src="@{/images/logo-sem-o-fundo.png}" class="imagem-logo"/>
 </a>
 
 <!--Nome da Aplicação centralizada no topo-->
@@ -169,6 +184,11 @@
 <!-- Botão de Entrar -->
 <a href="/loginPage">
     <button class="botao-entrar">Entrar</button>
+</a>
+
+
+<a href="/about_us">
+    <button class="botao-sobre">Sobre</button>
 </a>
 
 <!-- Seção de Perfil de Usuários -->

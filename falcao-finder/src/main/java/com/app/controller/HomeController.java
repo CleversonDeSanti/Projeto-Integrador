@@ -19,7 +19,13 @@ public class HomeController {
                 Map.of("id", "456", "name", "Maria Oliveira")
         );
 
+
         model.addAttribute("profiles", profiles);
         return "home"; // Apontar para a página HTML "home.html"
+    }
+
+    @GetMapping("/about_us")
+    public String showAboutUsPage() {
+        return "about_us"; // O nome do arquivo HTML (about_us.html) na pasta templates
     }
 }
