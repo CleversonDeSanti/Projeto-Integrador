@@ -203,15 +203,31 @@
       bottom: 0;
     }
 
-    footer p {
-      margin: 0;
-      font-size: 14px;
-    }
+    footer {
+  background-color: #4CAF50;
+  color: #f0f0f0;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0; /* Certifica-se de que está centralizado horizontalmente */
+  }
+    .imagem-logo {
+            position: absolute;
+            top: 10px;
+            left: 100px;
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+        }
   </style>
 </head>
 <body>
 
-
+<a href="home">
+  <img th:src="@{/images/logo sem o fundo.png}" class="imagem-logo"/>
+</a>
 
 <div class="container">
   <!-- Cabeçalho -->
