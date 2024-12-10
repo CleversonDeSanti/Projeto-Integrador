@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center; /* Centralizar o texto */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centraliza o conteúdo */
+            text-align: center;
+        }
+
+        .content {
+            background-color: #fff;
+            padding: 40px 30px;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            color: #333;
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #333; /* Cor verde para o título */
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .highlight {
+            color: #4CAF50;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .highlight-section {
+            background-color: #fff;
+            padding: 40px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgb(75, 174, 79);
+            text-align: center;
+        }
+
+        .highlight-section h2 {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .highlight-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="header-content">
+            <img src="pimcomletra.png" alt="Logo Falcão" class="logo">
+            <div class="header-text">
+                <h1>Sobre Nós</h1>
+                <p>Conheça nossa equipe de desenvolvedores!</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="about">
+        <div class="team">
+            <div class="team-member" onclick="showDetails('membro1')">
+                <img src="https://via.placeholder.com/150" alt="Membro 1">
+                <h3>João Silva</h3>
+                <p>Desenvolvedor Front-End</p>
+            </div>
+            <div class="team-member" onclick="showDetails('membro2')">
+                <img src="https://via.placeholder.com/150" alt="Membro 2">
+                <h3>Maria Oliveira</h3>
+                <p>Desenvolvedora Back-End</p>
+            </div>
+            <div class="team-member" onclick="showDetails('membro3')">
+                <img src="https://via.placeholder.com/150" alt="Membro 3">
+                <h3>Carlos Pereira</h3>
+                <p>Desenvolvedor Full Stack</p>
+            </div>
+            <div class="team-member" onclick="showDetails('membro4')">
+                <img src="https://via.placeholder.com/150" alt="Membro 4">
+                <h3>Laura Souza</h3>
+                <p>Desenvolvedora Front-End</p>
+            </div>
+            <div class="team-member" onclick="showDetails('membro5')">
+                <img src="https://via.placeholder.com/150" alt="Membro 5">
+                <h3>Lucas Martins</h3>
+                <p>Desenvolvedor Mobile</p>
+            </div>
+        </div>
+
+        <div class="details">
+            <div id="membro1" class="member-details">
+                <h2>João Silva</h2>
+                <p>João é responsável por criar interfaces incríveis e funcionais, sempre buscando melhorar a experiência do usuário com tecnologias como HTML, CSS e JavaScript...</p>
+            </div>
+            <div id="membro2" class="member-details">
+                <h2>Maria Oliveira</h2>
+                <p>Maria trabalha no desenvolvimento de soluções robustas para o servidor, utilizando linguagens como Python e Node.js...</p>
+            </div>
+            <div id="membro3" class="member-details">
+                <h2>Carlos Pereira</h2>
+                <p>Carlos é um desenvolvedor Full Stack, com experiência em diversas tecnologias tanto no front quanto no back-end...</p>
+            </div>
+            <div id="membro4" class="member-details">
+                <h2>Laura Souza</h2>
+                <p>Laura é especializada em interfaces front-end, com foco em usabilidade e design responsivo...</p>
+            </div>
+            <div id="membro5" class="member-details">
+                <h2>Lucas Martins</h2>
+                <p>Lucas é especialista em desenvolvimento mobile, criando aplicativos nativos e híbridos com foco em performance...</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <h1>Bem-vindo ao nosso buscador de prestadores de serviço!</h1>
+        <p>Somos uma plataforma dedicada a conectar clientes com os melhores prestadores de serviço da região. Nossa missão é <span class="highlight">facilitar</span> a busca por profissionais qualificados...</p>
+        <p>Com uma interface intuitiva e ferramentas avançadas, garantimos que você encontre o profissional ideal para suas necessidades...</p>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+/* Resetando estilos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos principais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho com fundo interativo e logo */
+.header {
+    background: linear-gradient(135deg, #2C6B2F, #4CAF50);
+    padding: 80px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    animation: fadeIn 2s ease-out;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 1000px;
+    max-width: 1000px;
+    animation: slideIn 1.5s ease-out;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    /* Removemos a animação de rotação do falcão */
+}
+
+.header-text h1 {
+    font-size: 3em;
+    font-weight: bold;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.header-text p {
+    font-size: 1.2em;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Estilos da equipe */
+.team {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.team-member {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    border: 2px solid #2C6B2F; /* Borda verde */
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fff;
+    width: 18%;
+    min-width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.team-member:hover {
+    transform: scale(1.05);
+    background-color: #e9f7e9; /* Verde claro */
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid #ecf0f1;
+}
+
+.team-member h3 {
+    font-size: 1.5em;
+    color: #2C6B2F; /* Verde escuro */
+    margin-bottom: 5px;
+}
+
+.team-member p {
+    color: #7f8c8d;
+    font-size: 1.1em;
+}
+
+/* Estilo para a seção de detalhes */
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.member-details {
+    display: none;
+    background-color: #e9f7e9; /* Fundo verde claro */
+    padding: 30px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 900px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease-in-out;
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.member-details h2 {
+    color: #2C6B2F; /* Verde escuro */
+    margin-bottom: 10px;
+}
+
+.member-details p {
+    color: #7f8c8d;
+}
+
+/* Animações de fade */
+.member-details.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .team {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-member {
+        width: 80%;
+    }
+
+    .details {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .member-details {
+        width: 80%;
+    }
+}

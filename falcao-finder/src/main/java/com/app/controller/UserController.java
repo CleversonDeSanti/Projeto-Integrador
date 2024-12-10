@@ -24,6 +24,12 @@ public class UserController {
         return model;
     }
 
+    @GetMapping("/about_us")
+        public String showAboutUsPage() {
+            return "about_us"; // O nome do arquivo HTML (about_us.html) na pasta templates
+        }
+
+
     // Endpoint para salvar (cadastrar ou editar) usuário
     @PostMapping("/users/save")
     public ModelAndView saveUser(@ModelAttribute("registerForm") User user) {
@@ -66,4 +72,6 @@ public class UserController {
         String responseMessage = userService.savePhoto(file, id, "profile");
         return ResponseEntity.ok(responseMessage); // Retorna a resposta ao cliente
     }
+
+
 }
