@@ -51,10 +51,9 @@
         }
 
         .logo {
-            width: 100px;
-            height: 100px;
+            width: 200px;
+            height: 250px;
             border-radius: 50%;
-            /* Removemos a animação de rotação do falcão */
         }
 
         .header-text h1 {
@@ -142,6 +141,7 @@
         }
 
         .team-member p {
+            text-align: center;
             color: #7f8c8d;
             font-size: 1.1em;
         }
@@ -227,6 +227,7 @@
         }
 
         .content {
+            text-align: center;
             background-color: #fff;
             padding: 40px 30px;
             max-width: 800px;
@@ -238,7 +239,7 @@
 
         h1 {
             font-size: 2.5rem;
-            color: #fff; /* Cor verde para o título */
+            color: #333; /* Cor verde para o título */
             margin-bottom: 20px;
             font-weight: 600;
         }
@@ -291,6 +292,22 @@
                 font-size: 1rem;
             }
         }
+        footer {
+            background-color: #4CAF50;
+            color: #f0f0f0;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            text-align: center;
+            margin: 0;
+            font-size: 14px;
+            color: #f0f0f0;
+        }
     </style>
 </head>
 <body>
@@ -305,66 +322,72 @@
         </div>
     </header>
 
+    <div class="content">
+        <h1>Bem-vindos ao nosso buscador de prestadores de serviço!</h1>
+        <p>Somos uma plataforma dedicada a conectar clientes com os melhores prestadores de serviço da região. Nossa missão é <span class="highlight">facilitar</span> a busca por profissionais qualificados e confiáveis.</p>
+        <p>Com uma interface intuitiva e ferramentas avançadas, garantimos que você encontre o profissional ideal para suas necessidades. Conheça mais sobre nossa equipe!</p>
+    </div>
     <section class="about">
+
         <div class="team">
             <div class="team-member" onclick="showDetails('membro1')">
-                <img src="https://via.placeholder.com/150" alt="Membro 1">
-                <h3>João Silva</h3>
-                <p>Desenvolvedor Front-End</p>
-            </div>
-            <div class="team-member" onclick="showDetails('membro2')">
-                <img src="https://via.placeholder.com/150" alt="Membro 2">
-                <h3>Maria Oliveira</h3>
-                <p>Desenvolvedora Back-End</p>
-            </div>
-            <div class="team-member" onclick="showDetails('membro3')">
-                <img src="https://via.placeholder.com/150" alt="Membro 3">
-                <h3>Carlos Pereira</h3>
+                <img th:src="@{/images/Cleverson.jpeg}" alt="Membro 1">
+                <h3>Cleverson de Santi</h3>
                 <p>Desenvolvedor Full Stack</p>
             </div>
+            <div class="team-member" onclick="showDetails('membro2')">
+                <img th:src="@{/images/Herick.jpeg}" alt="Membro 2">
+                <h3>Herick Silva</h3>
+                <p>Desenvolvedor Front-end</p>
+            </div>
+            <div class="team-member" onclick="showDetails('membro3')">
+                <img th:src="@{/images/Leonardo.jpeg}" alt="Membro 3">
+                <h3>Leonardo Granoski</h3>
+                <p>Analista de Produto</p>
+            </div>
             <div class="team-member" onclick="showDetails('membro4')">
-                <img src="https://via.placeholder.com/150" alt="Membro 4">
-                <h3>Laura Souza</h3>
-                <p>Desenvolvedora Front-End</p>
+                <img th:src="@{/images/Winicius.jpeg}" alt="Membro 4">
+                <h3>Winicius Friederich</h3>
+                <p>Gerente de Projeto</p>
             </div>
             <div class="team-member" onclick="showDetails('membro5')">
-                <img src="https://via.placeholder.com/150" alt="Membro 5">
-                <h3>Lucas Martins</h3>
-                <p>Desenvolvedor Mobile</p>
+                <img th:src="@{/images/Christofer.jpeg}" alt="Membro 5">
+                <h3>Christofer Crenonini</h3>
+                <p>Analista de Requisitos</p>
             </div>
         </div>
 
         <div class="details">
             <div id="membro1" class="member-details">
-                <h2>João Silva</h2>
-                <p>João é responsável por criar interfaces incríveis e funcionais, sempre buscando melhorar a experiência do usuário com tecnologias como HTML, CSS e JavaScript...</p>
+                <h2>Cleverson de Santi</h2>
+                <p>Cleverson é responsável pelo desenvolvimento, tanto no front-end, quanto no back-end, auxiliando também na condução e realização dos testes de produto, utilizando tecnologias robustas como Java e SpringBoot para o back-end, HTML, CSS e JavaScript para o front, entre outras.</p>
             </div>
             <div id="membro2" class="member-details">
-                <h2>Maria Oliveira</h2>
-                <p>Maria trabalha no desenvolvimento de soluções robustas para o servidor, utilizando linguagens como Python e Node.js...</p>
+                <h2>Herick Silva</h2>
+                <p>Herick trabalha no desenvolvimento da parte visual. É responsável por atrair o cliente e viabilizar a fixação do olhar do mesmo dentro do universo Falcão Finder. No seu dia-a-dia, Herick faz uso de HTML, CSS, JavaScript e muito contato pelo Discord com os guri.</p>
             </div>
             <div id="membro3" class="member-details">
-                <h2>Carlos Pereira</h2>
-                <p>Carlos é um desenvolvedor Full Stack, com experiência em diversas tecnologias tanto no front quanto no back-end...</p>
+                <h2>Leonardo Granoski</h2>
+                <p>Leonardo é nosso Analista de Produto. É dele que saem as principais ações e inovações relacionadas ao escopo do produto, aprovação e implementação de melhorias e sempre com 2 litros de energético ao lado.</p>
             </div>
             <div id="membro4" class="member-details">
-                <h2>Laura Souza</h2>
-                <p>Laura é especializada em interfaces front-end, com foco em usabilidade e design responsivo...</p>
+                <h2>Winicius Friederich</h2>
+                <p>Winicius é responsável pela condução do projeto, atua no intermédio entre o desenvolvimento do produto e o comercial, visando levar o nome Falcão Finder pelo Brasil e pelo mundo afora...</p>
             </div>
             <div id="membro5" class="member-details">
-                <h2>Lucas Martins</h2>
-                <p>Lucas é especialista em desenvolvimento mobile, criando aplicativos nativos e híbridos com foco em performance...</p>
+                <h2>Christofer Crenonini</h2>
+                <p>Christofer é a ponte entre o que o cliente precisa e o que devemos desenvolver para atender à sua necessidade. É responsável por análises críticas e cirúrgicas do que deve e do que não deve ser levado em conta em nosso produto.</p>
             </div>
         </div>
     </section>
 
-    <div class="content">
-        <h1>Bem-vindo ao nosso buscador de prestadores de serviço!</h1>
-        <p>Somos uma plataforma dedicada a conectar clientes com os melhores prestadores de serviço da região. Nossa missão é <span class="highlight">facilitar</span> a busca por profissionais qualificados...</p>
-        <p>Com uma interface intuitiva e ferramentas avançadas, garantimos que você encontre o profissional ideal para suas necessidades...</p>
-    </div>
+
 
 </div>
+
+<footer>
+    <p>&copy; 2024 FFConnect&trade;. Todos os direitos reservados.</p>
+</footer>
 
 <script src="../static/script.js"></script>
 </body>
