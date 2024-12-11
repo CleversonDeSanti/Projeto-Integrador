@@ -172,9 +172,9 @@ body {
 }
 
 /* Animações de fade */
-.member-details.show {
-    display: block;
-    opacity: 1;
+.member-details {
+    display: none;
+    opacity: 0;
 }
 
 /* Responsividade */

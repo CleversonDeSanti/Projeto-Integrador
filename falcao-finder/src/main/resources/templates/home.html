@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Início</title>
     <style>
-        /* Estilos da página inicial */
         body {
             margin: 0;
             height: 100vh;
@@ -13,11 +12,11 @@
         body {
             margin: 0;
             height: 100vh;
-            background-image: url('/images/plano_de_fundo.png'); /* Substitua pelo caminho da sua imagem */
-            background-size: cover; /* Faz a imagem cobrir toda a área */
-            background-position: center; /* Centraliza a imagem */
-            background-repeat: no-repeat; /* Evita repetição da imagem */
-            font-family: Arial, sans-serif; /* Estilo da fonte */
+            background-image: url('/images/plano_de_fundo.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
 
         }
 
@@ -32,23 +31,19 @@
         }
         .nome-aplicacao {
             position: absolute;
-            top: 50px; /* Ajuste a posição conforme necessário */
+            top: 50px;
             left: 50%;
-            transform: translateX(-50%); /* Centraliza o item horizontalmente */
-            font-size: 4em; /* Aumenta a fonte */
+            transform: translateX(-50%);
+            font-size: 4em;
             font-weight: bold;
-            color: #4CAF50; /*rgba(255, 255, 255, 0.5);  Preenchimento translúcido branco */
-            -webkit-text-stroke: 2px #4CAF50; /* Borda verde de 2px */
-            text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.2); /* Sombra para dar mais destaque */
+            color: #4CAF50;
+            -webkit-text-stroke: 2px #4CAF50;
+            text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.2);
             cursor: pointer;
-            text-decoration: none; /* Remove sublinhado */
-            font-family: 'Verdana', sans-serif; /* Estilo de fonte */
-            letter-spacing: 2px; /* Aumenta o espaçamento entre as letras */
+            text-decoration: none;
+            font-family: 'Verdana', sans-serif;
+            letter-spacing: 2px;
         }
-
-
-
-
 
         .botao-entrar {
             position: absolute;
@@ -88,7 +83,6 @@
             background-color: #45a049;
         }
 
-        /* Estilos da página de perfil */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
@@ -108,7 +102,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 100px; /* Ajuste para separar a moldura do conteúdo superior */
+            margin-top: 100px;
         }
 
         .perfil-container {
@@ -184,15 +178,12 @@
 </head>
 <body>
 
-<!-- Imagem no canto superior esquerdo da página inicial -->
 <a href="home">
     <img th:src="@{/images/logo-sem-o-fundo.png}" class="imagem-logo"/>
 </a>
 
-<!--Nome da Aplicação centralizada no topo-->
 <a href="home"  class="nome-aplicacao">Falcão Finder</a>
 
-<!-- Botão de Entrar -->
 <a href="/loginPage">
     <button class="botao-entrar">Entrar</button>
 </a>
@@ -202,7 +193,6 @@
     <button class="botao-sobre">Sobre</button>
 </a>
 
-<!-- Seção de Perfil de Usuários -->
 <div class="moldura">
 
     <div class="perfil-container">
@@ -265,7 +255,6 @@
         <a href="/visualizar-perfil?id=5678" class="botao-editar">Visualizar</a>
     </div>
 </div>
-<!-- Rodapé com copyright -->
 <footer>
     <p>&copy; 2024 FFConnect&trade;. Todos os direitos reservados.</p>
 </footer>

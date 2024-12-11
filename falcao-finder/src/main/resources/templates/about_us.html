@@ -13,11 +13,11 @@
             box-sizing: border-box;
         }
 
-        /* Estilos principais */
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            color: #333;
+            color: #f0f0f0;
             padding: 0;
         }
 
@@ -30,7 +30,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Cabeçalho com fundo interativo e logo */
         .header {
             background: linear-gradient(135deg, #2C6B2F, #4CAF50);
             padding: 80px;
@@ -63,14 +62,15 @@
             font-weight: bold;
             animation: bounce 2s ease-in-out infinite;
             position: relative;
+            color: #f0f0f0;
         }
 
         .header-text p {
             font-size: 1.2em;
             position: relative;
+            color: #f0f0f0;
         }
 
-        /* Animações */
         @keyframes fadeIn {
             0% {
                 opacity: 0;
@@ -103,7 +103,6 @@
             }
         }
 
-        /* Estilos da equipe */
         .team {
             display: flex;
             justify-content: space-around;
@@ -116,7 +115,7 @@
             text-align: center;
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
-            border: 2px solid #2C6B2F; /* Borda verde */
+            border: 2px solid #2C6B2F;
             padding: 10px;
             border-radius: 8px;
             background-color: #fff;
@@ -127,7 +126,7 @@
 
         .team-member:hover {
             transform: scale(1.05);
-            background-color: #e9f7e9; /* Verde claro */
+            background-color: #e9f7e9;
         }
 
         .team-member img {
@@ -140,7 +139,7 @@
 
         .team-member h3 {
             font-size: 1.5em;
-            color: #2C6B2F; /* Verde escuro */
+            color: #2C6B2F;
             margin-bottom: 5px;
         }
 
@@ -150,7 +149,6 @@
             font-size: 1.1em;
         }
 
-        /* Estilo para a seção de detalhes */
         .details {
             display: flex;
             flex-direction: column;
@@ -183,13 +181,12 @@
             color: #7f8c8d;
         }
 
-        /* Animações de fade */
-        .member-details.show {
+        .member-details {
             display: block;
             opacity: 1;
+            transition: opacity 0.5s ease-in-out;
         }
 
-        /* Responsividade */
         @media (max-width: 768px) {
             .team {
                 flex-direction: column;
@@ -286,7 +283,6 @@
             text-align: justify;
         }
 
-        /* Responsividade */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -312,13 +308,16 @@
             font-size: 14px;
             color: #f0f0f0;
         }
+
     </style>
 </head>
 <body>
 <div class="container">
     <header class="header">
         <div class="header-content">
-            <img th:src="@{/images/logo-sem-o-fundo.png}" alt="Logo Falcão" class="logo">
+            <a th:href="@{/home}" title="Voltar para a página inicial">
+                <img th:src="@{/images/logo-sem-o-fundo.png}" alt="Logo Falcão" class="logo">
+            </a>
             <div class="header-text">
                 <h1>Sobre Nós</h1>
                 <p>Conheça nossa equipe de desenvolvedores!</p>
@@ -384,15 +383,13 @@
             </div>
         </div>
     </section>
-
-
-
 </div>
 
 <footer>
     <p>&copy; 2024 FFConnect&trade;. Todos os direitos reservados.</p>
 </footer>
 
-<script src="../static/script.js"></script>
+<script th:src="@{../static/script.js}"></script>
+
 </body>
 </html>
